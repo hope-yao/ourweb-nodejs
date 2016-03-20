@@ -1,0 +1,552 @@
+.menu {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+.button {
+    display: inline-block;
+    padding: 8px;
+    color: #FFF;
+    background-color: #555;
+}
+.button.enabled {
+    background-color: rgb(18, 36, 70);
+}
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(18, 36, 70);
+}
+.button.error {
+    pointer-events: none;
+    background-color: red;
+}
+
+/***************** INTERFACE *******************/
+#game {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #eee;
+    display: none;
+    z-index: 0;
+    transition: all 0.5s;
+ }
+
+#game.active {
+    box-shadow: inset 0 0 50px #333333;
+}
+
+.fb-like{
+    width: 240px;
+}
+
+#wait {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    /*background-color: #f5f5ff;*/
+    /*color: #333333;*/
+    /*-webkit-transition: background-color 0.5s, -webkit-transform 0.5s;*/
+    /*transition: background-color 0.5s, transform 0.5s;*/
+    transition: all 0.5s;
+    z-index: 5;
+}
+
+#continue {
+    display: none;
+}
+
+
+#title {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    z-index: 5;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
+#menu {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+}
+
+#select {
+    position: absolute;
+    /*width: 50px;*/
+    /*height: 50px;*/
+    /*background-color: transparent;*/
+    /*color: #cccccc;*/
+    /*border-radius: 5px;*/
+    /*font-size: 40px;*/
+    /*line-height: 50px;*/
+    /*text-align: center;*/
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    transition: all 0.5s;
+}
+
+#select.active {
+    box-shadow: inset 0 0 50px #333333;
+}
+
+#time {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    color: #cccccc;
+    border-radius: 5px;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    z-index: 5;
+}
+
+#timebar {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #cccccc;
+    -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;
+    transition: background-color 0.5s, transform 0.5s;
+    z-index: 5;
+}
+
+#score {
+    position: absolute;
+    /*width: 200px;*/
+    /*height: 50px;*/
+    /*background-color: transparent;*/
+    /*color: #cccccc;*/
+    /*border-radius: 5px;*/
+    /*font-size: 40px;*/
+    /*line-height: 50px;*/
+    /*text-align: center;*/
+    width: 100%;
+    height: 10px;
+    top: 0px;
+    left: 0px;
+    background-color: #333333;
+    z-index: 5;
+}
+
+#bar {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #f5f5ff;
+    color: #cccccc;
+    -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;
+    transition: background-color 0.5s, transform 0.5s;
+    z-index: 5;
+}
+
+#bar.active {
+    background-color: #333333;
+}
+
+#guessinput, #guessoutput {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    background-color: #fff9f8;
+    color: #333333;
+    border-radius: 5px;
+    border: 0;
+    padding: 0;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;
+    transition: background-color 0.5s, transform 0.5s;
+    bottom: -88px;
+}
+
+#guessinput {
+    z-index: 5;
+}
+#guessinput:focus {
+    outline: none !important;
+    border: 0;
+    box-shadow: inset 0 0 5px #333333;
+}
+#guessoutput {
+    z-index: 2;
+}
+
+
+#model {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    z-index: 1;
+    outline: none !important;
+}
+
+#stat {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+    z-index: 0;
+}
+
+#comp_model1, #comp_model2 {
+    position: relative;
+    top: 0px;
+    float: left;
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    outline: none !important;
+}
+
+#objlist {
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+}
+.object_div a{
+    font-size: 10px;
+    background: #eee;
+    color: #222;
+}
+
+/*#instruction {*/
+    /*/!*display: none;*!/*/
+    /*position: absolute;*/
+    /*top: 100px;*/
+    /*width: 100%;*/
+    /*/!*height: 60px;*!/*/
+    /*z-index: 1;*/
+    /*/!*transition: all 0.5s;*!/*/
+    /*/!*box-shadow: 5px 5px 50px #333333;*!/*/
+/*}*/
+
+/*#instruction p{*/
+    /*width: 50%;*/
+    /*margin: auto;*/
+    /*font-style: italic;*/
+    /*font-size: 16px;*/
+    /*line-height: 20px;*/
+    /*text-align: left;*/
+    /*/!*transition: all 0.5s;*!/*/
+/*}*/
+
+#gamescore{
+    position: absolute;
+    bottom: 140px;
+    width: 100%;
+    margin: auto;
+    height: 60px;
+    z-index: 1;
+    transition: all 0.5s;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+
+
+
+
+
+
+/* From bootstrap cover template */
+/*
+ * Globals
+ */
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+    color: #eeeeee;
+    text-shadow: none; /* Prevent inheritence from `body` */
+    background-color: #222;
+    border: 1px solid #222;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+    height: 100%;
+    background-color: #eee;
+    color: #220f00;
+    text-align: center;
+    /*text-shadow: 0 1px 3px rgba(0,0,0,.25);*/
+    overflow: hidden;
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+    display: table;
+    width: 100%;
+    height: 100%; /* For at least Firefox */
+    min-height: 100%;
+    /*-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.25);*/
+    /*box-shadow: inset 0 0 100px rgba(0,0,0,.25);*/
+}
+.site-wrapper-inner {
+    display: table-cell;
+    vertical-align: top;
+}
+.cover-container {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+    padding: 30px;
+}
+
+/* Padding for facebook */
+.fb {
+    padding: 30px;
+}
+
+
+/*
+ * Header
+ */
+.masthead {
+    z-index: 1;
+}
+.masthead-brand {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+    display: inline-block;
+    cursor: pointer;
+}
+.masthead-nav > li + li {
+    margin-left: 20px;
+}
+.masthead-nav > li > a {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #222; /* IE8 proofing */
+    color: rgba(0,0,0,.75);
+    border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+    background-color: transparent;
+    border-bottom-color: #333;
+    border-bottom-color: rgba(0,0,0,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+    color: #222;
+    border-bottom-color: #222;
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {
+    padding: 0 20px;
+    line-height: 5
+}
+.cover .btn-lg {
+    padding: 10px 100px;
+    font-weight: bold;
+}
+
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+    color: #333; /* IE8 proofing */
+    color: rgba(0,0,0,.5);
+    z-index: 1;
+}
+
+
+/*
+ * Affix and center
+ */
+
+    /* Pull out the header and footer */
+.masthead {
+    position: fixed;
+    top: 0;
+    width: 900px;
+}
+.mastfoot {
+    position: fixed;
+    bottom: 0;
+    width: 900px;
+}
+/* Start the vertical centering */
+.site-wrapper-inner {
+    vertical-align: middle;
+}
+/* Handle the widths */
+.cover-container {
+    /*width: 100%; /!* Must be percentage or pixels for horizontal alignment *!/*/
+    width: 900px;
+}
+.masthead-brand {
+    float: left;
+}
+.masthead-nav {
+    float: right;
+}
+
+
+
+/* From bootstrap cover template */
+
+/* For loading sign */
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+#rotate{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    color: #333333;
+    border-radius: 5px;
+    border: 0;
+    padding: 0;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transition: background-color 0.5s, -webkit-transform 0.5s;
+    transition: background-color 0.5s, transform 0.5s;
+    z-index: 10;
+}
+.rt_left{
+    bottom: 100px;
+    left: 50px;
+}
+.rt_right{
+    bottom: 100px;
+    left: 150px;
+}
+.rt_up{
+    bottom: 135px;
+    left: 100px;
+}
+.rt_down{
+    bottom: 65px;
+    left: 100px;
+}
+
+
+/***************************************/
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 1024px) {
+    .masthead {
+        position: fixed;
+        top: 0;
+        width: 90%;
+    }
+    .mastfoot {
+        position: fixed;
+        bottom: 0;
+        width: 90%;
+    }
+    /* Start the vertical centering */
+    .site-wrapper-inner {
+        vertical-align: middle;
+    }
+    /* Handle the widths */
+    .cover-container {
+        /*width: 100%; /!* Must be percentage or pixels for horizontal alignment */
+        width: 90%;
+    }
+    .masthead-brand {
+        float: left;
+    }
+    .masthead-nav {
+        float: right;
+    }
+    .cover{
+        /*width: 90%;*/
+        font-size: 90%;
+    }
+    .cover .btn-lg{
+        padding: 6px 15px;
+    }
+    .mastfoot{
+        font-size: 50%;
+    }
+    .cover-heading{
+        font-size: 170%;
+    }
+    .lead{
+        font-size: 70%;
+    }
+    .inner{
+        padding: 0px;
+    }
+    .fb-like{
+        width: 50%;
+    }
+    /*.rt_left{*/
+        /*bottom: 100px;*/
+        /*left: 50px;*/
+    /*}*/
+    /*.rt_right{*/
+        /*bottom: 100px;*/
+        /*left: 150px;*/
+    /*}*/
+    /*.rt_up{*/
+        /*bottom: 135px;*/
+        /*left: 100px;*/
+    /*}*/
+    /*.rt_down{*/
+        /*bottom: 65px;*/
+        /*left: 100px;*/
+    /*}*/
+
+
+}
